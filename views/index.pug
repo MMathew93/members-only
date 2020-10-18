@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    container
+      h1(class="subtitle") Message Board
+      div(class="columns")
+        div(class="column")
+        if user
+          div(class="column is-three-quarters content")
+            button Post message
+            div
+              p Lorem Ipsuem test um
+            div
+              p Lorem Ipsuem test um
+            div
+              p Lorem Ipsuem test um
+            div
+              p Lorem Ipsuem test um
+        else
+          div(class="column is-three-quarters content")
+            div
+              p Lorem Ipsuem test um
+            div
+              p Lorem Ipsuem test um
+            div
+              p Lorem Ipsuem test um
+            div
+              p Lorem Ipsuem test um
+        div(class="column")

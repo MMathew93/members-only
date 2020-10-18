@@ -1,0 +1,6 @@
+1. Fix joining membership, update membership status
+2. Create new message form, controller, route
+3. Display all member messages on the homepage
+    a. Only display author & date if user is a member
+4. Add admin, allow them the ability to delete, if admin they should be able to see specific admin buttons
+    a. add admin log in t member log in page

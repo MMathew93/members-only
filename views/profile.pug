@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    container
+      h1(class="subtitle")= h1
+      div(class="columns")
+        div(class="column")
+        div(class="column is-three-quarters content")
+          div(class="container details")
+            h2 Name: #{ fullname }
+            if membershipStatus === 'default'
+              h2 Membership: Not a member
+            else
+              h2 Membership: Certified Member
+            if adminStatus
+              h2 Admin Status: You're an admin!
+            else
+              div(class="becomeAdmin")
+              form(action="" method="POST")
+                div(class="field-body secret")
+                  div(class="field")
+                    label(class="label") Become an admin!
+                    div(class="control")
+                      p(class="control has-icons-left")
+                        input(class="input" type="text" placeholder="Admin code" name="admincode")
+                        span(class="icon is-small is-left")
+                          i.fas.fa-users-cog
+                  div(class="join-box")
+                    button(class="button is-primary is-fullwidth" native-type="submit" name="submit" value="submit") Join
+        div(class="column")

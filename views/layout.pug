@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title= title
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous")
+    link(rel="apple-touch-icon" sizes="180x180" href="../images/favicon.ico")
+    link(rel="icon" type="image/png" sizes="32x32" href="../images/favicon.ico")
+    link(rel="icon" type="image/png" sizes="16x16" href="../images/favicon.ico")
+  body
+    nav(class="navbar header" role="navigation" aria-label="main navigation")
+      div(class="navbar-brand")
+          div(class="navbar-burger burger")
+            span
+            span
+            span
+      if user
+        div(class="navbar-menu")
+          div(class="navbar-start")
+              p(class="control")
+                a(class="title" href="/") Member's Board
+          div(class="navbar-end")
+            div(class="field is-grouped")
+              p(class="control")
+                a(class="bd-button button is-primary" href="/user/profile") Profile
+              p(class="control")
+                a(class="bd-button button is-primary" href="/member/join") Become a member
+              p(class="control")
+                a(class="bd-button button is-link" href="/user/logout") Log Out
+      else
+        div(class="navbar-menu")
+          div(class="navbar-start")
+            p(class="control")
+              a(class="title" href="/") Member's Board
+          div(class="navbar-end")
+            div(class="field is-grouped")
+              p(class="control")
+                a(class="bd-button button is-primary" href="/user/create") Sign Up
+              p(class="control")
+                a(class="bd-button button is-link" href="/user/login") Log In
+    section
+      block content
+  script.src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"

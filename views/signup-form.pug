@@ -1,0 +1,44 @@
+extends layout
+
+block content
+    container
+      h1(class="subtitle")= h1
+      div(class="columns")
+        div(class="column")
+        div(class="column is-three-quarters content")
+          if errors
+            ul
+              for error in errors
+                div.alert.alert-danger #{error.msg}
+          div
+            form(action="/user/create" method="POST")
+              div(class="field-body")
+                div(class="field")  
+                  label(class="label") First Name
+                  div(class="control")
+                    input(class="input" type="text" placeholder="First name" name="firstname")
+                div(class="field")
+                  label(class="label") Last Name
+                  div(class="control")
+                    input(class="input" type="text" placeholder="Last name" name="lastname")
+              div(class="field")
+                label(class="label") Username
+                  div(class="control")
+                    input(class="input" type="text" placeholder="Username" name="username")
+              div(class="field")
+                label(class="label") Password
+                  div(class="control")
+                    p(class="control has-icons-left")
+                      input(class="input" type="password" name="password")
+                      span(class="icon is-small is-left")
+                        i.fas.fa-lock
+              div(class="field")
+                label(class="label") Confirm Password
+                  div(class="control")
+                    p(class="control has-icons-left")
+                      input(class="input" type="password" name="confirmpassword")
+                      span(class="icon is-small is-left")
+                        i.fas.fa-lock
+              div(class="button-box")
+                button(class="button is-primary is-fullwidth" native-type="submit" name="submit" value="submit") Submit
+        div(class="column")

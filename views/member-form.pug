@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    container
+      h1(class="subtitle")= h1
+      div(class="columns")
+        div(class="column")
+        div(class="column is-three-quarters content")
+          if errors
+            ul
+              for error in errors
+                div.alert.alert-danger #{error}
+          div(class="secret-society")
+            form(action="/member/join" method="POST")
+              div(class="field-body secret")
+                div(class="field")
+                  label(class="label") Secret Passcode
+                  div(class="control")
+                    p(class="control has-icons-left")
+                      input(class="input" type="text" placeholder="Passcode" name="passcode")
+                      span(class="icon is-small is-left")
+                        i.fas.fa-user-secret
+                div(class="join-box")
+                  button(class="button is-primary is-fullwidth" native-type="submit" name="submit" value="submit") Join
+        div(class="column")
