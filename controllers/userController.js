@@ -24,13 +24,18 @@ exports.postUserCreate = [
         .isAlpha()
         .withMessage('Last name must contain letters only'),
     body('username')
-        .exists()
-        .withMessage('This username already exists')
         .isLength({ min: 1 })
         .trim()
         .withMessage('Username cannot be empty')
         .isAlphanumeric()
         .withMessage('Username contains non-alphanumeric characters'),
+    check('username')
+        .custom((value, { req }) => {
+            if(User.findOne({user_name: req.body.username}) !== null) {
+                throw new Error('Username already exists');
+            }
+            return true;
+        }),
     body('password')
         .isLength({ min: 8 })
         .trim()
