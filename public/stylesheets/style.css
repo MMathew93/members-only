@@ -3,6 +3,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: rgb(196, 191, 183);
   background-color: rgb(24, 26, 27);
+  height: 100vh;
 }
 
 a {

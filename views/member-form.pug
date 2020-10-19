@@ -9,7 +9,7 @@ block content
           if errors
             ul
               for error in errors
-                div.alert.alert-danger #{error}
+                div.alert.alert-danger #{error.msg}
           div(class="secret-society")
             form(action="/member/join" method="POST")
               div(class="field-body secret")

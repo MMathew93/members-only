@@ -17,7 +17,7 @@ html
             span
             span
             span
-      if user
+      if user && !user.isMember
         div(class="navbar-menu")
           div(class="navbar-start")
               p(class="control")
@@ -28,6 +28,17 @@ html
                 a(class="bd-button button is-primary" href="/user/profile") Profile
               p(class="control")
                 a(class="bd-button button is-primary" href="/member/join") Become a member
+              p(class="control")
+                a(class="bd-button button is-link" href="/user/logout") Log Out
+      else if user
+        div(class="navbar-menu")
+          div(class="navbar-start")
+              p(class="control")
+                a(class="title" href="/") Member's Board
+          div(class="navbar-end")
+            div(class="field is-grouped")
+              p(class="control")
+                a(class="bd-button button is-primary" href="/user/profile") Profile
               p(class="control")
                 a(class="bd-button button is-link" href="/user/logout") Log Out
       else

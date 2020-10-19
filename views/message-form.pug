@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    container
+      h1(class="subtitle")= h1
+      div(class="columns")
+        div(class="column")
+        div(class="column is-three-quarters content")
+          if errors
+            ul
+              for error in errors
+                div.alert.alert-danger #{error.msg}
+          div
+            form(action="/message/create" method="POST")
+              div(class="field-body")
+                div(class="field")  
+                  label(class="label") Title
+                  div(class="control")
+                    input(class="input" type="text" placeholder="Title..." name="title" maxlength="50")
+              div(class="field")
+                label(class="label") Message
+                  div(class="control")
+                    textarea(class="textarea is-large" placeholder="Text..." rows="10" minlength='1' maxlength="255" name='messagetext')
+              div(class="button-box")
+                button(class="button is-primary is-fullwidth" native-type="submit" name="submit" value="submit") Submit
+        div(class="column")

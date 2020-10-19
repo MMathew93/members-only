@@ -7,23 +7,19 @@ block content
         div(class="column")
         if user
           div(class="column is-three-quarters content")
-            button Post message
-            div
-              p Lorem Ipsuem test um
-            div
-              p Lorem Ipsuem test um
-            div
-              p Lorem Ipsuem test um
-            div
-              p Lorem Ipsuem test um
+            a(class="bd-button button is-primary" href="/message/create") Post message
+            each message in messages
+              div
+                p #{ message.title }
+                p #{ message.text }
+                p #{ message.time_stamp }
+                p #{ message.user }
         else
           div(class="column is-three-quarters content")
-            div
-              p Lorem Ipsuem test um
-            div
-              p Lorem Ipsuem test um
-            div
-              p Lorem Ipsuem test um
-            div
-              p Lorem Ipsuem test um
+            each message in messages
+              div
+                p #{ message.title }
+                p #{ message.text }
+                p #{ message.time_stamp }
+                p #{ message.user }
         div(class="column")
