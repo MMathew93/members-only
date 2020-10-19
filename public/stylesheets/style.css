@@ -3,7 +3,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: rgb(196, 191, 183);
   background-color: rgb(24, 26, 27);
-  height: 100vh;
+  height: auto;
 }
 
 a {
@@ -85,4 +85,9 @@ h1, h2 {
 .user-date {
   display: flex;
   justify-content: space-between;
+}
+
+.removepost {
+  display: flex;
+  align-self: end;
 }

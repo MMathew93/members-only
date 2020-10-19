@@ -30,12 +30,19 @@ exports.postUserCreate = [
         .isAlphanumeric()
         .withMessage('Username contains non-alphanumeric characters'),
     check('username')
-        .custom((value, { req }) => {
-            if(User.findOne({user_name: req.body.username}) !== null) {
-                throw new Error('Username already exists');
-            }
-            return true;
-        }),
+        .custom((value, {req}) => {
+        return new Promise((resolve, reject) => {
+            User.findOne({user_name:req.body.username}, function(err, user){
+                if(err) {
+                    reject(new Error('Server Error'))
+                }
+                if(Boolean(user)) {
+                    reject(new Error('Username already in use'))
+                }
+                resolve(true)
+          });
+        });
+    }),
     body('password')
         .isLength({ min: 8 })
         .trim()

@@ -16,7 +16,11 @@ block content
               h2 Admin Status: You're an admin!
             else
               div(class="becomeAdmin")
-              form(action="" method="POST")
+              if errors
+                ul
+                  for error in errors
+                    div.alert.alert-danger #{error.msg}
+              form(action="/admin/join" method="POST")
                 div(class="field-body secret")
                   div(class="field")
                     label(class="label") Become an admin!

@@ -9,4 +9,7 @@ router.get('/create', message.getMessageCreate);
 //post message created
 router.post('/create', message.postMessageCreate);
 
+//post delete messages
+router.delete('/:id', message.postDeleteMessage);
+
 module.exports = router;

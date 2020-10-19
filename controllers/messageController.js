@@ -34,10 +34,24 @@ exports.postMessageCreate = [
                         user: req.user
                     }
                 )
-                message.save(function(err) {
+                await message.save(function(err) {
                     if(err) { return next(err); }
                     res.redirect('/');
                 });
             }
         }
 ];
+
+//POST to Delete/Remove Message
+exports.postDeleteMessage = async(req, res, next) => {
+    if(!req.user) {
+        res.redirect('/user/login')
+    }
+    await Message.findById(req.params._id, function(err, results) {
+        if(err) { return next(err); }
+        Message.findByIdAndRemove(req.params._id, function deleteMessage(err) {
+            if(err) { return next(err); }
+            res.redirect('/')
+        });
+    });
+};

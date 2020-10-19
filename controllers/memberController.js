@@ -19,7 +19,7 @@ exports.postBecomeMember = [
         async(req, res, next) => {
             const errors = await validationResult(req)
             if(!errors.isEmpty()) {
-                res.render('member-form', { title: 'Member\'s only message board - Join Membership', h1: 'Become a member', errors: errors.array({ onlyFirstError: true }) });
+                res.render('member-form', { title: 'Member\'s only message board - Join Membership', h1: 'Become a member', user: req.user, errors: errors.array({ onlyFirstError: true }) });
                 return;
             }else {
                 await User.findByIdAndUpdate(req.user._id, { membership_status: 'member' });
