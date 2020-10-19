@@ -5,21 +5,35 @@ block content
       h1(class="subtitle") Message Board
       div(class="columns")
         div(class="column")
-        if user
+        if user && !user.isMember
           div(class="column is-three-quarters content")
             a(class="bd-button button is-primary" href="/message/create") Post message
-            each message in messages
-              div
-                p #{ message.title }
-                p #{ message.text }
-                p #{ message.time_stamp }
-                p #{ message.user.user_name}
+            div(class="message-box")
+              each message in messages
+                div(class="message-box")
+                  div(class="message-post tile notification is-info is-8")
+                    p(class='title') #{ message.title }
+                    p(class='subtitle') #{ message.text }
+                    p -Anonymous
+        else if user
+          div(class="column is-three-quarters content")
+            a(class="bd-button button is-primary" href="/message/create") Post message
+            div(class="message-box")
+              each message in messages
+                  div(class="message-post tile notification is-info is-8")
+                    p(class='title') #{ message.title }
+                    p(class='subtitle') #{ message.text }
+                    div(class='user-date')
+                      div
+                         p -#{ message.user.user_name }
+                      div
+                        p #{ message.time_stampFormatted }
         else
           div(class="column is-three-quarters content")
-            each message in messages
-              div
-                p #{ message.title }
-                p #{ message.text }
-                p #{ message.time_stamp }
-                p #{ message.user.user_name }
+            div(class="message-box")
+              each message in messages
+                div(class="message-post tile notification is-info is-8")
+                  p(class='title') #{ message.title }
+                  p(class='subtitle') #{ message.text }
+                  p -Anonymous
         div(class="column")

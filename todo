@@ -4,3 +4,6 @@
 3. Only display author & date if user is a member
 4. Add admin, allow them the ability to delete, if admin they should be able to see specific admin buttons
     a. add admin log in t member log in page
+
+BUG
+Users can make multiple usernames already in use

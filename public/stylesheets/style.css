@@ -18,7 +18,7 @@ i {
   color: gray;
 }
 
-h2 {
+h1, h2 {
   color: white !important;
 }
 
@@ -66,4 +66,23 @@ h2 {
   padding: 4rem;
   color: inherit !important;
   font-size: 18px;
+}
+
+.message-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px;
+}
+
+.message-post {
+  display: flex;
+  flex-direction: column;
+  color: white !important;
+}
+
+.user-date {
+  display: flex;
+  justify-content: space-between;
 }
