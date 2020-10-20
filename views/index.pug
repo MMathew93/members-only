@@ -21,7 +21,7 @@ block content
             div(class="message-box")
               each message in messages
                   div(class="message-post tile notification is-info is-8")
-                    form(class="removepost" action="" method="POST")
+                    form(class="removepost" action="message/remove/"+ message._id, method="POST")
                       button(class="button is-danger removepost" native-type="submit" name="submit" value="submit") Delete
                     p(class="title") #{ message.title }
                     p(class="subtitle") #{ message.text }

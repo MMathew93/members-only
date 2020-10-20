@@ -10,6 +10,6 @@ router.get('/create', message.getMessageCreate);
 router.post('/create', message.postMessageCreate);
 
 //post delete messages
-router.delete('/:id', message.postDeleteMessage);
+router.post('/remove/:id', message.postDeleteMessage);
 
 module.exports = router;
