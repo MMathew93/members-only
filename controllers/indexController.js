@@ -1,5 +1,4 @@
 const Message = require('../models/message');
-const User = require('../models/user');
 
 exports.getIndex = async(req, res, next) => {
     const messages = await Message.find().populate('user')

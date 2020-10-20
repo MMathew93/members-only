@@ -48,8 +48,7 @@ exports.postDeleteMessage = async(req, res, next) => {
         res.redirect('/user/login')
     }
     if(req.user.isAdmin) {
-        console.log(req.params._id)
-        await Message.findByIdAndRemove(req.params._id);
+        await Message.findByIdAndRemove(req.params.id);
         res.redirect('/');
     }
 };
